@@ -16,6 +16,7 @@ public class IntBag{
         this.arrayBoundary = (getArrayBoundary()*2);
     }
 
+    //that returns the number of values currently in the collection
     public static int getCurrentNoInArray() {
         return currentNoInArray;
     }
@@ -26,8 +27,9 @@ public class IntBag{
 
     public void addValueToEnd(int valueToBeAdded){
 
-        if(getArrayBoundary() > getCurrentNoInArray()){
+        if(getArrayBoundary() > (getCurrentNoInArray()+1)){
             bag[currentNoInArray] = valueToBeAdded;
+            bag[currentNoInArray+1] = -1;
             currentNoInArray++;
         }
         //Doubling the size of the array if necessary
@@ -39,6 +41,7 @@ public class IntBag{
             doubleTheArrayBoundary();
             bag = temp;
             bag[currentNoInArray] = valueToBeAdded;
+            bag[currentNoInArray + 1] = -1;
             currentNoInArray++;
         }
         System.out.println(valueToBeAdded + " is added to the end");
@@ -95,6 +98,7 @@ public class IntBag{
         }
     }
     
+    //Also, write methods to remove the value at a given index (placing the last element of the array into that index)
     public void removeValue(int indexToBeRemoved) {
         if (indexToBeRemoved <= getArrayBoundary()){
             bag[indexToBeRemoved] = bag[getArrayBoundary()-1];
@@ -105,10 +109,12 @@ public class IntBag{
         }
     }
 
+    //finally, a method that will allow you to get the value at location i within the collection.
     public int getSpecificLocation(int specificIndex){
         return bag[specificIndex];
     }
 
+    //another to test whether the collection contains a given value or not
     public boolean isInTheArray(int askedValue) {
         boolean isHere = false;
         for(int j = 0; j<bag.length; j++) {
@@ -135,6 +141,18 @@ public class IntBag{
                 currentNoInArray--;
             }
         }
+    }
+
+    public void fibonacciMethod() {
+        bag[0] = 0;
+        bag[1] = 1;
+        setCurrentNoInArray(2);
+
+        for(int i = 0; i < 39; i++) {
+            addValueToEnd(bag[i] + bag[i+1]);
+        }
+        currentNoInArray++;
+         
     }
 
     public void removeAll() {

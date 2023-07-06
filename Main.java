@@ -15,21 +15,23 @@ public class Main {
             System.out.println("5. Remove the value at a specified location from the collection of values");
             System.out.println("6. Remove all instances of a value within the collection");
             System.out.println("7. Quit the program.");
+            System.out.println("8. Fibonacci Sequence (Part C)");
             System.out.println("Your selection: ");
             selection = scan.nextInt();
 
-            if (selection > 7 || selection < 1) {
+            if (selection > 8 || selection < 1) {
                 System.out.println("Invalid selection! Try again: ");
                 selection = scan.nextInt();
             } 
             else {
                 if(selection == 1){
-                    intBag1.removeAll();
+                    intBag1 = new IntBag();
+                    IntBag.setCurrentNoInArray(0);
                 }
                 else if(selection == 2){
                     intBag1.addValueToEnd(13);
                     intBag1.addValueToEnd(92);
-                    System.out.println("Three values have been added.");
+                    System.out.println("Two values have been added.");
                 }
                 else if(selection == 3){
                     System.out.println(intBag1.toString());
@@ -52,6 +54,10 @@ public class Main {
                     int number = scan.nextInt();
                     intBag1.removeAllInstances(number);
                     System.out.println("The number is removed from the collection");
+                }
+                else if(selection == 8){
+                    System.out.println("For Part C: Fibonacci Values will be shown up to first 40 terms:");
+                    intBag1.fibonacciMethod();
                 }
             } 
         }
