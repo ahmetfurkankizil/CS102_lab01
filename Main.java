@@ -29,9 +29,16 @@ public class Main {
                     IntBag.setCurrentNoInArray(0);
                 }
                 else if(selection == 2){
-                    intBag1.addValueToEnd(13);
-                    intBag1.addValueToEnd(92);
-                    System.out.println("Two values have been added.");
+                    int input;
+                    do {
+                        System.out.println("Add a value: (Press 0 to stop)");
+                        input = scan.nextInt();
+
+                        if(input != 0) {
+                            intBag1.addValueToEnd(input);
+                        }
+                        
+                    } while (input != 0);
                 }
                 else if(selection == 3){
                     System.out.println(intBag1.toString());

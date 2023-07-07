@@ -129,7 +129,13 @@ public class IntBag{
     public String toString() {
         String returnString = "";
         for(int i=0; i<bag.length; i++) {
-            returnString = returnString + i + ". " + bag[i] + "\n";
+            returnString = returnString + i + ". ";
+            if(bag[i] == 0) {
+                returnString += "Empty" + "\n";
+            }
+            else {
+                returnString += bag[i] + "\n";
+            }
         }
         return "The array is the following: " + "\n" + returnString;
     }
