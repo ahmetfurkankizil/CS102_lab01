@@ -70,6 +70,7 @@ public class Main {
         }
         while (selection != 7);
             System.out.println("The program will be terminated now.");
+            scan.close();
     }
 }
 
